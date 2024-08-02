@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom'
 import Card from './Card'
 
 function Dashboard() {
-  const {purchasedCourses}=useContext(ShowContext)
-  console.log("purchase",purchasedCourses[0]);
+  const {purchasedCourses,userData}=useContext(ShowContext)
+  const purchase=purchasedCourses.filter((cources)=>cources.details.user==userData.email)
+  console.log("purchase",purchasedCourses);
 
   return (
     <main>
     <div className='text-white text-center font-bold'>Welcome to Dashboard</div>
     <div className='md:p-5 p-1 items-center flex flex-col md:flex-row gap-5 overflow-x-auto justify-center hide-scrollbar'>
 
-        { purchasedCourses ? purchasedCourses.map((cource,index) => (
-        <Card key={index} details={cource?.details?.details} price={cource?.details?.price} image={cource?.details?.image} isPurchased={true} />
+        { purchasedCourses ? purchase.map((cource,index) => (
+        <Card key={index} details={cource?.details?.data?.name} price={cource?.details?.data?.price} image={cource?.details?.data?.image} isPurchased={true} />
       )):
        <Link to="/home/explore"><div className=' text-center p-5 font-bold text-lg bg-[#e06641]'>Go to Explore Cources</div></Link> 
       }

@@ -17,8 +17,12 @@ function ShowContextProvider({ children }) {
       setAllCourses(data1)
       const data2=await getValueFromDatabase("/purchase")
       setPurchasedCourses(data2)
+       
+
+      
       if (user) {
         setUserData(user.currentUser);
+      
       }
       setIsLoading(false)
     };

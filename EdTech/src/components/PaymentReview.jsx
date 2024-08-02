@@ -13,7 +13,7 @@ const useQuery = () => {
 
 function PaymentReview() {
   const navigate=useNavigate()
-  const {allCourses,isLoading}=useContext(ShowContext)
+  const {allCourses,isLoading,userData}=useContext(ShowContext)
 
   const query = useQuery();
   const paramValue = query.get("Param");
@@ -37,6 +37,10 @@ function PaymentReview() {
        price:data[0]?.price,
        image:data[0]?.image
     })
+    let dataToWriteInDB={
+      data:product,
+      user:userData.email
+    }
   //   if(!isLoading)
   //  { setFinalPrice((prevProduct)=>({
   //     ...prevProduct,
@@ -80,7 +84,8 @@ function PaymentReview() {
         console.log("RESPONSE",res)
         if(res.ok){
           // console.log("ok");
-         write_to_database("/purchase",data[0])
+        
+         write_to_database("/purchase",dataToWriteInDB)
          navigate("/home/dashboard")
           
         }

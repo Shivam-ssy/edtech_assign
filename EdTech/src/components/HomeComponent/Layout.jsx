@@ -8,7 +8,7 @@ const HomeLayout = ({ children }) => {
     return(
         <>
                 {userData &&
-            <main className='w-[90vw] md:w-full min-h-fit md:h-full flex md:flex-row flex-col'>
+            <main className='w-[90vw] md:w-full h-screen min-h-fit md:h-full flex md:flex-row flex-col'>
                 <div className='md:w-60 h-fit rounded-2xl pt-3 md:h-full md:border-2 items-center flex flex-col md:border-[#e06641]'>
                     <div className='w-36 h-36 rounded-full p-1 bg-[#e06641]'>
 

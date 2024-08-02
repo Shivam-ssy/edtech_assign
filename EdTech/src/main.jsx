@@ -41,9 +41,7 @@ const router = createBrowserRouter(
       <Route
           path="/payment"
           element={
-            <ProtectedRoute>
              <PaymentReview/>
-            </ProtectedRoute>
           }
         />
     </Route>
