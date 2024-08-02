@@ -22,6 +22,7 @@ function PaymentReview() {
   
   
   const key=import.meta.env.VITE_STRIPE_PUB_KEY
+  const base=import.meta.env.VITE_Backend_url
     const value={
         "courceName":"Explore the AI",
         "price":"100"
@@ -71,7 +72,7 @@ function PaymentReview() {
       const headers={
         "Content-type":"application/json"
       }
-      return fetch(`http://localhost:3000/payment`,{
+      return fetch(`${base}/payment`,{
         method:"POST",
         headers,
         body:JSON.stringify(body)
